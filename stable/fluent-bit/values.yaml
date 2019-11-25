@@ -82,6 +82,14 @@ backend:
     tls_verify: "off"
     tls_debug: 1
     message_key: "kubernetes"
+  datadog:
+    host: http-intake.logs.datadoghq.com
+    tls: on
+    apiKey:
+    apiKeyExistingSecret:
+    ddSource: kubernetes
+    ddService: fluent-bit
+    ddTags:
   stackdriver: {}
 
   ##

@@ -160,6 +160,22 @@ data:
         service_account_email  {{ .Values.backend.stackdriver.service_account_email }}
         service_account_secret  {{ .Values.backend.stackdriver.service_account_secret }}
 {{- end }}
+{{ else if eq .Values.backend.type "datadog" }}
+    [OUTPUT]
+        Name datadog
+        Match *
+        Host {{ .Values.backend.datadog.host }}
+        TLS  {{ .Values.backend.datadog.tls }}
+        apikey ${DATADOG_API_KEY}
+{{- if .Values.backend.datadog.ddSource }}
+        dd_source {{ .Values.backend.datadog.ddSource }}
+{{- end }}
+{{- if .Values.backend.datadog.ddService }}
+        dd_service {{ .Values.backend.datadog.ddService }}
+{{- end }}
+{{- if .Values.backend.datadog.ddTags }}
+        dd_tags {{ .Values.backend.datadog.ddTags }}
+{{- end }}
 {{ else if eq .Values.backend.type "http" }}
     [OUTPUT]
         Name  http

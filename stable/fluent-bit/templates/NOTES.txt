@@ -12,4 +12,8 @@ It will forward all container logs to the svc named {{ .Values.backend.http.host
 {{- else if eq .Values.backend.type "splunk" }}
 
 It will forward all container logs to the svc named {{ .Values.backend.splunk.host }} on port: {{ .Values.backend.splunk.port }}
+
+{{- else if eq .Values.backend.type "datadog"}}
+
+It will forward all container logs to the svc named {{ .Values.backend.datadog.host}}
 {{- end }}

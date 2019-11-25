@@ -82,6 +82,14 @@ The following table lists the configurable parameters of the Fluent-Bit chart an
 | `backend.stackdriver.google_service_credentials`           | Contents of a Google Cloud credentials JSON file. | `` |
 | `backend.stackdriver.service_account_email`           | Account email associated to the service. Only available if no credentials file has been provided. | `` |
 | `backend.stackdriver.service_account_secret`            | Private key content associated with the service account. Only available if no credentials file has been provided. | `` |
+| **Datadog Backend**           |
+| `backend.datadog.host`             | The Datadog server where you are sending your logs. | `http-intake.logs.datadoghq.com` |
+| `backend.datadog.tls`             | End-to-end security communications security protocol. Datadog recommends leaving this on. | `on` |
+| `backend.datadog.apiKey`             | Your [Datadog API key](https://app.datadoghq.com/account/settings#api). | `` |
+| `backend.datadog.apiKeyExistingSecret`   | If set, use the secret with a provided name instead of creating a new one. | `` |
+| `backend.datadog.ddSource`             | A human readable name for the underlying technology of your service | `kubernetes` |
+| `backend.datadog.ddService`             | The human readable name for your service generating the logs. | `fluent-bit` |
+| `backend.datadog.ddTags`             | The tags you want to assign to your logs in Datadog. | `` |
 | **Parsers**                   |
 | `parsers.enabled`                  | Enable custom parsers | `false` |
 | `parsers.regex`                    | List of regex parsers | `NULL` |
